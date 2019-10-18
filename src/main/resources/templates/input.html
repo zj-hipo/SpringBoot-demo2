@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+	<title>添加新闻</title>
+</head>
+<body>
+<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<div class="container">
+	<div class="col-md-12 column">
+		<img src="../images/16pic_581546_b.jpg" class="img-responsive" />
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<!--th是thymeleaf表达式-->
+			<form th:action="@{/news/addNews}" method="post" role="form" class="form-horizontal"
+				  style="width:900px;">
+
+				<div class="form-group">
+					<label style="color: brown ">新闻标题</label>
+					<input type="text" class="form-control"  name="newsTitle" placeholder="新闻标题">
+				</div>
+
+				<div class="form-group">
+					<label style="color: brown">新闻评论</label>
+					<input type="text" class="form-control" name="newsContent" placeholder="新闻评论">
+				</div>
+
+				<div class="form-group">
+					<label style="color: brown">作者姓名</label>
+					<input type="text" class="form-control" name="adminName" placeholder="作者姓名">
+				</div>
+
+				<button type="submit" class="btn btn-primary">确定</button>
+			</form>
+			<h2>
+				Heading
+			</h2>
+			<p>
+				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+			</p>
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

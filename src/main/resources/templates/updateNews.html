@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    新闻修改 <small>修改</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <form th:action="@{/news/editNews}" method="post" style="width: 500px;">
+                <!-- @Update("UPDATE news set NewsTitle=#{newsTitle},NewsContent=#{newsContent},AdminName=#{adminName} WHERE NewsID=#{newsId}")-->
+                <input type="hidden" name="newsId" th:field="${news.newsId}"/>
+                <div class="form-group">
+                    <label style="color: brown ">新闻标题</label>
+                    <input type="text" class="form-control"  name="newsTitle" th:field="${news.newsTitle}">
+                </div>
+
+                <div class="form-group">
+                    <label style="color: brown">新闻评论</label>
+                    <input type="text" class="form-control" name="newsContent" th:field="${news.newsContent}">
+                </div>
+
+                <div class="form-group">
+                    <label style="color: brown">作者姓名</label>
+                    <input type="text" class="form-control" name="adminName" th:field="${news.adminName}">
+                </div>
+                <button type="submit" class="btn btn-warning">修改</button>
+                <!--
+                    新闻标题：<input type="text" name="newsTitle"  th:field="${news.newsTitle}"/><br/>
+                    新闻评论：<input type="text" name="newsContent" th:field="${news.newsContent}"/><br/>
+                    作者姓名：<input type="text" name="adminName" th:field="${news.adminName}"/><br/>-->
+            </form>
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>
+                    注意!
+                </h4> <strong>Warning!</strong> 修改前请注意检查，不要修改错误，以免造成不必要的麻烦 <a href="#" class="alert-link">alert link</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
