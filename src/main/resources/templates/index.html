@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Z-GAME首页</title>
+</head>
+<body>
+<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<!--导航栏-->
+<nav class="navbar navbar-expand-lg bg-info navbar-dark">
+    <a class="navbar-brand" href="#"><img src="/uugai.com_1571667699943.png" style="width: 150px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="login.html">首页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">游戏</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    更多
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">注册</a>
+                    <a th:href="@{/z-game/indexTologin}" class="dropdown-item" >登录</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">退出</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="查询" aria-label="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">查询</button>
+        </form>
+    </div>
+</nav>
+
+<!--巨幕-->
+<div class="jumbotron">
+    <h1 class="display-3">欢迎来到<span style="font-weight: 700;font-style:italic;color: indianred">Z-GAME</span></h1>
+    <p class="lead">这是一个专业的游戏收集网站，在这里您能找到一切！</p>
+    <hr class="my-4">
+    <blockquote class="blockquote">
+        <p>欢迎点击导航栏的<span style="color: brown;font-weight: 700">更多</span>选项，选择登录或者注册以便查看更多</p>
+        <footer class="blockquote-footer">开发者：张军</footer>
+    </blockquote>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button"><span style="font-weight: 800">了解更多</span></a>
+    </p>
+</div>
+
+<!--底部-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="card-deck">
+
+            <div class="card text-center">
+                <img class="card-img-top" src="/gamersky_01origin_01_2018101220268EA.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">刺客信条：奥德赛</h4>
+                    <p class="card-text">2018年发售</p>
+                    <a href="#" class="btn btn-primary">查看更多本系列游戏</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">3天前更新</small>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <img class="card-img-top" src="/辐射4.jpg" alt="Card image" style="width:100%; height: 80%">
+                <div class="card-body">
+                    <h4 class="card-title">辐射4</h4>
+                    <p class="card-text">2011年发售</p>
+                    <a href="#" class="btn btn-primary">查看更多本系列游戏</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <img class="card-img-top" src="/上古卷轴5.jpg" alt="Card image" style="width:100%;height: 80%">
+                <div class="card-body">
+                    <h4 class="card-title">上古卷轴5：天际</h4>
+                    <p class="card-text">2011年发售</p>
+                    <a href="#" class="btn btn-primary">查看更多本系列游戏</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <img class="card-img-top" src="/GTA5麦克.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">GTA5</h4>
+                    <p class="card-text">2010年发售</p>
+                    <a href="#" class="btn btn-primary">查看更多本系列游戏</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container-fluid">
+    <div class="row" style="text-align: center">
+        <div class="col-lg-3">
+            <h4 style="margin-top: 5%">关于我们</h4>
+            <ul class="list-group">
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">公司简介</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">游戏中心</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">用户协议</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">隐私政策</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3">
+            <h4 style="margin-top: 5%">合作伙伴</h4>
+            <ul class="list-group">
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">合作名单</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">合作规则</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">合作问题</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">盈利模式</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3">
+            <h4 style="margin-top: 5%">招聘人才</h4>
+            <ul class="list-group">
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">简历中心</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">招聘门槛</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">工作要求</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">工作福利</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3">
+            <h4 style="margin-top: 5%">常见问题</h4>
+            <ul class="list-group">
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">帮助中心</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">投诉建议</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">客户服务</a></li>
+                <li class="list-group-item list-unstyled" style="border: 0px"><a href="#" class="text-dark">客服</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr class="my-4">
+    <div>
+        <div style="text-align: center">
+            <p> Copyright © 2019 <span style="font-weight: 700;font-style:italic;color: rosybrown">Z-GAME</span> Incorporated.All rights reserved.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

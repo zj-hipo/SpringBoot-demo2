@@ -8,74 +8,143 @@
 <body>
 <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
 <script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!--navbar:设置导航栏；navbar-header：设置导航栏头部;navbar-brand:品牌;navbar-nav:将一个ul导航菜单应用在导航栏内-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="margin-bottom: 0px">
 
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#">首页</a>
-                </li>
-                <li>
-                    <a href="#">简介</a>
-                </li>
-                <li class="disabled">
-                    <a href="#">信息</a>
-                </li>
-                <li class="dropdown pull-right">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">操作</a>
-                        </li>
-                        <li>
-                            <a href="#">设置栏目</a>
-                        </li>
-                        <li>
-                            <a href="#">更多设置</a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">分割线</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+    <ul class="navbar-nav mr-auto font-weight-bold ">
+        <li>
+            <img src="home_page_128px_505312_easyicon.net.ico" class="rounded-circle" width="40">
+        </li>
+        <!-- Brand/logo -->
+        <a class="navbar-brand text-danger font-italic" href="#">Z-GAME</a>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">游戏目录</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">图片</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">存档<i class="badge">32</i></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="#">链接</a>
+        </li>
+
+    </ul>
+
+    <!--ml-auto:元素居右-->
+    <ul class="navbar-nav ml-auto font-weight-bold">
+        <li>
+            <img src="settings.ico" width="40">
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">设置</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </li>
+
+        <li>
+            <img src="登录.ico" width="40">
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">登录</a>
+        </li>
+
+        <li>
+            <img src="退出.ico" width="40">
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">退出</a>
+        </li>
+    </ul>
+</nav>
+
+<!--中间部分-->
+<div class="row" style="margin-top: 100px">
+    <div class="col-sm-2" style="padding-right: 0;border-right:1px saddlebrown;box-shadow: 1px 0 2px ">
+        <!--搜索框-->
+        <div id="research" class="mr-auto" style="padding: 2px;height: 40px" width="30">
+            <div class="input-group">
+                <input class="form-control" type="text">
+                <div class="input-group-btn">
+                    <a href="#" class="btn btn-warning btn-sm">
+                        <img src="search_.ico" width="27">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--折叠菜单-->
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                        游戏管理
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse show " data-parent="#accordion">
+                    <div class="card-body">
+                        <a class="dropdown-item" href="#">添加游戏</a>
+                        <a class="dropdown-item" href="#">查看游戏</a>
+                        <a class="dropdown-item" href="#">删除游戏</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                        图片管理
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                        存档管理
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <dl>
-                <dt>
-                    Description lists
-                </dt>
-                <dd>
-                    A description list is perfect for defining terms.
-                </dd>
-                <dt>
-                    Euismod
-                </dt>
-                <dd>
-                    Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-                </dd>
-                <dd>
-                    Donec id elit non mi porta gravida at eget metus.
-                </dd>
-                <dt>
-                    Malesuada porta
-                </dt>
-                <dd>
-                    Etiam porta sem malesuada magna mollis euismod.
-                </dd>
-                <dt>
-                    Felis euismod semper eget lacinia
-                </dt>
-                <dd>
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                </dd>
-            </dl>
-            <table class="table table-bordered table-hover text-center " style="width:900px;">
+
+    <div class="col-sm-10" style="padding-left: 8px">
+        <!--中间右边部分的顶部，面包屑导航-->
+        <nav class="breadcrumb" style="height: 40px;margin-bottom: 0px">
+            <li><img src="导航.ico" width="30"></li>
+            <a class="breadcrumb-item" href="#">首页</a>
+            <a class="breadcrumb-item" href="#">Library</a>
+            <a class="breadcrumb-item" href="#">Data</a></li>
+            <span class="breadcrumb-item active">GAME</span>
+        </nav>
+
+        <!--card属性，面板-->
+        <div class="card bg-info text-white font-weight-bold" style="height: 52px">
+            <div class="card-body">
+                游戏管理
+            </div>
+        </div>
+        <!--表格-->
+        <div>
+            <table class="table table-bordered table-hover text-center">
                 <tr>
                     <th>新闻ID</th>
                     <th>新闻标题</th>
@@ -99,31 +168,11 @@
                     </td>
                 </tr>
             </table>
-            <ul class="pagination">
-                <li>
-                    <a href="#">Prev</a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">Next</a>
-                </li>
-            </ul>
         </div>
     </div>
+
 </div>
+
+
 </body>
 </html>
