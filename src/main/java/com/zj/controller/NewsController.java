@@ -38,7 +38,7 @@ public class NewsController {
     public String findNews(Model model){
         List<News> list=newsService.getAll();
         model.addAttribute("list",list);
-        return "newsPages";
+        return "/end/newsPages";
     }
     /*根据id查询修改用户,因为要传回页面做回显，所以要加个Model对象
     * */
@@ -46,14 +46,14 @@ public class NewsController {
     public String selectById(Integer id,Model model){
         News news=newsService.selectById(id);
         model.addAttribute("news",news);
-        return "updateNews";
+        return "/end/updateNews";
     }
     /*修改
     * */
     @RequestMapping("/editNews")
     public String updateNews(News news){
         newsService.updateNews(news);
-        return "success";
+        return "redirect:/news/findNews";
     }
     /*删除
     * */

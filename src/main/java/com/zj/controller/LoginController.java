@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @create: 2019-10-24 19:20
  **/
 @Controller
-@RequestMapping("/z-game")
+@RequestMapping("/login")
 public class LoginController {
     @RequestMapping("/indexTologin")
     public String login(){
-        return "login";
+        return "/front/login";
     }
 }
