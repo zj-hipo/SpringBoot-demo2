@@ -166,10 +166,11 @@
                     <th>图片标题</th>
                     <th>图片</th>
                     <th>时间</th>
+                    <th>操作</th>
 
                 </tr>
                 <!--n是起的变量名-->
-                <tr th:each="pic : ${list2}">
+                <tr th:each="pic : ${list2.list}">
                     <td th:text="${pic.title}"></td>
                     <td><img th:src="@{${pic.imgFileName}}" style="width: 50px;height: 50px"></td>
                     <td th:text="${pic.date}"></td>
@@ -179,6 +180,20 @@
                     </td>
                 </tr>
             </table>
+            <p>当前 <span th:text="${list2.pageNum}"></span> 页,总 <span th:text="${list2.pages}"></span> 页,共 <span th:text="${list2.total}"></span> 条记录</p>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link"th:href="@{/index/findPictures}">首页</a>
+                    </li>
+                    <li class="page-item"><a class="page-link"th:href="@{/index/findPictures(pageNum=${list2.hasPreviousPage}?${list2.prePage}:1)}">上一页</a></li>
+                    <li class="page-item"><a class="page-link"th:href="@{/index/findPictures(pageNum=${list2.hasNextPage}?${list2.nextPage}:${list2.pages})}">下一页</a></li>
+                    <li class="page-item">
+                        <a class="page-link"th:href="@{/index/findPictures(pageNum=${list2.pages})}">尾页</a>
+                    </li>
+                </ul>
+            </nav>
+
         </div>
     </div>
 

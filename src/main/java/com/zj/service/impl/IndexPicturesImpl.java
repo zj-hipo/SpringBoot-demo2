@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 /**
  * @program: SpringBoot_Demo2
@@ -74,6 +75,7 @@ public class IndexPicturesImpl implements IndexPicturesService {
     * 查询所有
     * */
     public List<IndexPictures> findAll() {
+
         return indexPicturesMapper.findPictures();
     }
 }

@@ -1,5 +1,7 @@
 package com.zj.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zj.dto.IndexPicturesDto;
 import com.zj.pojo.IndexPictures;
 import com.zj.service.IndexPicturesService;
@@ -8,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -50,16 +52,20 @@ public class IndexController {
     }
 
     /*
-    * 图片查看
+    * 图片查看,添加了分页查询
     * */
     @RequestMapping("/findPictures")
-    public String findPictures(Model model){
+    public String findPictures(Model model,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum){
+        /*
+        * 设置分页
+        * */
+        PageHelper.startPage(pageNum,5);
+
         /*
         * 在这里传dto，把dto的img属性里加入adImageUrl
         * 然后就可以在html页面显示了
         * */
         List<IndexPictures> list2=indexPicturesService.findAll();
-
         //将/**后的俩**去掉
         String url=addPicturesUrl.substring(0,addPicturesUrl.length()-2);
         /*
@@ -68,7 +74,8 @@ public class IndexController {
         for (IndexPictures pic : list2) {
             pic.setImgFileName(url+pic.getImgFileName());
         }
-        model.addAttribute("list2",list2);
+        PageInfo<IndexPictures> pageInfo = new PageInfo<IndexPictures>(list2);
+        model.addAttribute("list2",pageInfo);
         return "/end/indexPicturesPages";
     }
 }

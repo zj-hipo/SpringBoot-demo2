@@ -100,5 +100,9 @@
     <orderEntry type="library" name="Maven: org.webjars:bootstrap:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:jquery:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:popper.js:1.14.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper-spring-boot-starter:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper-spring-boot-autoconfigure:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" level="project" />
   </component>
 </module>
