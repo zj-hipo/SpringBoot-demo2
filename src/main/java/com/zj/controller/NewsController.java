@@ -6,6 +6,7 @@ import com.zj.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -25,6 +26,14 @@ public class NewsController {
     @RequestMapping("/{page}")
     public String showPage(@PathVariable String page){
         return page;
+    }
+
+    /*
+    * 添加页面
+    * */
+    @RequestMapping("/inputPages")
+    public String inputPages(){
+        return "/end/input";
     }
     //添加用户
     @RequestMapping("/addNews")

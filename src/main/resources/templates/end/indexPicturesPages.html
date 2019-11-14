@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <title>新闻页面</title>
 </head>
 <body>
-<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
-<script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!--navbar:设置导航栏；navbar-header：设置导航栏头部;navbar-brand:品牌;navbar-nav:将一个ul导航菜单应用在导航栏内-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="margin-bottom: 0px">
 
@@ -126,11 +126,11 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
                         首页管理
                     </a>
                 </div>
-                <div id="collapseFour" class="collapse show " data-parent="#accordion">
+                <div id="collapseFour" class="collapse " data-parent="#accordion">
                     <div class="card-body">
                         <a th:href="@{/index/addIndexPictures}" class="dropdown-item" >添加图片</a>
                         <a class="dropdown-item" href="#">查看游戏</a>
@@ -181,7 +181,9 @@
                 </tr>
             </table>
             <p>当前 <span th:text="${list2.pageNum}"></span> 页,总 <span th:text="${list2.pages}"></span> 页,共 <span th:text="${list2.total}"></span> 条记录</p>
-            <nav aria-label="Page navigation example">
+        </div>
+
+            <nav aria-label="Page navigation example" class="fixed-bottom" style="padding-bottom: 200px">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
                         <a class="page-link"th:href="@{/index/findPictures}">首页</a>
@@ -193,8 +195,6 @@
                     </li>
                 </ul>
             </nav>
-
-        </div>
     </div>
 
 </div>

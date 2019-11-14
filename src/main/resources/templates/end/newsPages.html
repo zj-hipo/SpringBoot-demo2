@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
 <head>
     <meta charset="UTF-8">
-    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+   <!-- <link th:src="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" rel="stylesheet">-->
     <title>新闻页面</title>
 </head>
 <body>
-<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
-<script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>-->
 <!--navbar:设置导航栏；navbar-header：设置导航栏头部;navbar-brand:品牌;navbar-nav:将一个ul导航菜单应用在导航栏内-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="margin-bottom: 0px">
 
@@ -89,9 +92,8 @@
                 </div>
                 <div id="collapseOne" class="collapse show " data-parent="#accordion">
                     <div class="card-body">
-                        <a class="dropdown-item" href="#">添加游戏</a>
-                        <a class="dropdown-item" href="#">查看游戏</a>
-                        <a class="dropdown-item" href="#">删除游戏</a>
+                        <a class="dropdown-item" th:href="@{/news/inputPages}">添加游戏</a>
+                        <a class="dropdown-item" th:href="@{/news/findNews}">查看游戏</a>
                     </div>
                 </div>
             </div>
@@ -179,16 +181,55 @@
                     <td >
                         <!--注意这里的id是Mapper里的注解@Select("SELECT NewsID,NewsTitle,NewsContent,AdminName FROM news WHERE NewsID=#{id}")-->
                         <!--这里的id-->
-                        <a th:href="@{/news/selectById(id=${news.newsId})}">修改用户</a>
-                        <a th:href="@{/news/deleteNews(ids=${news.newsId})}">删除用户</a>
+                        <a class="btn-primary" th:href="@{/news/selectById(id=${news.newsId})}">修改用户</a>
+                        <!--<a class="btn-danger"th:href="@{/news/deleteNews(ids=${news.newsId})}">删除用户</a>-->
+                        <!--thymeleaf 标签 执行 onclick 事件传参数 的写法-->
+                        <!--<button class="btn btn-primary" type="button" onclick="delcfm()" >删除</button>-->
+                        <button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#myModal">删除</button>
+                        <!-- 模态框 -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- 模态框头部 -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">提示</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- 模态框主体 -->
+                                    <div class="modal-body">
+                                        <!--<input type="hidden" id="deleteHaulId"  th:field="${news.newsId}"/>-->
+                                        确定删除当前这条信息吗？
+                                    </div>
+
+                                    <!-- 模态框底部 -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <button class="btn btn-primary" type="button" id="deleteHaulBtn" data-dismiss="modal">确定</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-
 </div>
+<!--
+<script  th:inline="javascript">
+    var ne=$("#deleteHaulId").val();
 
+    /*<![CDATA[*/
+    $("#deleteHaulBtn").click(function() {
+        alert(ne)
+    });
+    /*]]>*/
+</script>
+-->
 
 </body>
 </html>
