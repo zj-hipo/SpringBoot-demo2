@@ -21,7 +21,6 @@ import java.util.List;
  * @create: 2019-10-21 01:10
  **/
 @Controller
-@RequestMapping("/index")
 public class IndexController {
     @Autowired
     private IndexPicturesService indexPicturesService;

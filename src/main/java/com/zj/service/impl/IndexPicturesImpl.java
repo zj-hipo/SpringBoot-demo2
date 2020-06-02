@@ -23,7 +23,7 @@ import org.springframework.ui.Model;
 @Service
 @Transactional
 public class IndexPicturesImpl implements IndexPicturesService {
-    @Autowired(required = false)
+    @Autowired
     private IndexPicturesMapper indexPicturesMapper;
     /*
     * 图片的保存路径
@@ -77,5 +77,10 @@ public class IndexPicturesImpl implements IndexPicturesService {
     public List<IndexPictures> findAll() {
 
         return indexPicturesMapper.findPictures();
+    }
+
+    /*根据id删除*/
+    public void deletePicById(Integer ids) {
+
     }
 }

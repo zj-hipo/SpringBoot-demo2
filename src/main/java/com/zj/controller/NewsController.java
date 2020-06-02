@@ -42,7 +42,9 @@ public class NewsController {
         return"redirect:/news/findNews";
     }
     /*
-    * 查询*/
+    * 查询
+    * model将页面所需的数据传到页面
+    * */
     @RequestMapping("/findNews")
     public String findNews(Model model){
         List<News> list=newsService.getAll();

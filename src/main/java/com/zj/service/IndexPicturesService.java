@@ -15,4 +15,6 @@ import java.util.List;
 public interface IndexPicturesService {
     boolean addPictures(IndexPicturesDto indexPicturesDto);
     List<IndexPictures> findAll();
+    /*删除*/
+    void deletePicById(Integer ids);
 }

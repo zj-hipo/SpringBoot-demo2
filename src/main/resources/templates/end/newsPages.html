@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
    <!-- <link th:src="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" rel="stylesheet">-->
-    <title>新闻页面</title>
+    <title>管理页面</title>
 </head>
 <body>
 <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
@@ -114,13 +114,13 @@
             <div class="card">
                 <div class="card-header">
                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                        存档管理
+                        用户管理
                     </a>
                 </div>
                 <div id="collapseThree" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                        <a class="dropdown-item" href="#">Link 1</a>
-                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">添加用户</a>
+                        <a class="dropdown-item" href="#">查看用户</a>
                         <a class="dropdown-item" href="#">Link 3</a>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                    <a class="card-link" data-toggle="collapse" href="#collapseFour">
                         首页管理
                     </a>
                 </div>
@@ -181,11 +181,11 @@
                     <td >
                         <!--注意这里的id是Mapper里的注解@Select("SELECT NewsID,NewsTitle,NewsContent,AdminName FROM news WHERE NewsID=#{id}")-->
                         <!--这里的id-->
-                        <a class="btn-primary" th:href="@{/news/selectById(id=${news.newsId})}">修改用户</a>
+                        <a class="btn btn-primary" role="button" th:href="@{/news/selectById(id=${news.newsId})}">修改用户</a>
+                        <a class="btn btn-primary" role="button"data-toggle="modal" href="#updateNewsModal">修改用户</a>
                         <!--<a class="btn-danger"th:href="@{/news/deleteNews(ids=${news.newsId})}">删除用户</a>-->
-                        <!--thymeleaf 标签 执行 onclick 事件传参数 的写法-->
-                        <!--<button class="btn btn-primary" type="button" onclick="delcfm()" >删除</button>-->
                         <button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#myModal">删除</button>
+                        <button class="btn btn-warning" type="button" >标记为已读</button>
                         <!-- 模态框 -->
                         <div class="modal fade" id="myModal">
                             <div class="modal-dialog">
@@ -206,7 +206,8 @@
                                     <!-- 模态框底部 -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                        <button class="btn btn-primary" type="button" id="deleteHaulBtn" data-dismiss="modal">确定</button>
+                                        <!--<button class="btn btn-primary" type="button" id="deleteHaulBtn" data-dismiss="modal">确定</button>-->
+                                        <a class="btn btn-primary" role="button" th:href="@{/news/deleteNews(ids=${news.newsId})}">确定</a>
 
                                     </div>
 
@@ -218,18 +219,42 @@
             </table>
         </div>
     </div>
+    <!--模态框-->
+    <!-- 修改功能的模态框 -->
+    <div class="modal fade" id="updateNewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">添加新闻</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/news/editNews}"  method="post">
+                        <input type="hidden" name="newsId" th:field="${news.newsId}"/>
+                        <div class="form-group">
+                            <label for="newsTitle" class="col-form-label">新闻标题:</label>
+                            <input  class="form-control" name="newsTitle" id="newsTitle" th:field="${news.newsTitle}">
+                        </div>
+                        <div class="form-group">
+                            <label for="newsContent" class="col-form-label">新闻评论:</label>
+                            <input  class="form-control" name="newsContent" id="newsContent" th:field="${news.newsContent}">
+                        </div>
+                        <div class="form-group">
+                            <label for="adminName" class="col-form-label">作者名字:</label>
+                            <input  class="form-control" name="adminName"id="adminName" th:field="${news.adminName}">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-warning">修改</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!--
-<script  th:inline="javascript">
-    var ne=$("#deleteHaulId").val();
-
-    /*<![CDATA[*/
-    $("#deleteHaulBtn").click(function() {
-        alert(ne)
-    });
-    /*]]>*/
-</script>
--->
-
 </body>
 </html>

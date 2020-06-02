@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <title>新闻页面</title>
+    <title>首页</title>
 </head>
 <body>
 <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
@@ -28,17 +28,21 @@
                     更多
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">注册</a>
+                    <a class="dropdown-item" th:href="@{/indextoRe}">注册</a>
                     <a th:href="@{/login/indexTologin}" class="dropdown-item" >登录</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">退出</a>
+                    <a class="dropdown-item"th:href="@{/login/logout}" href="#">退出</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <span class="nav-link" style="color: brown" th:text="${session.nickname}"></span>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="查询" aria-label="Search">
             <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">查询</button>
         </form>
+
     </div>
 </nav>
 

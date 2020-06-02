@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <title>新闻页面</title>
+    <title>登录</title>
 </head>
 <body>
 <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
@@ -18,16 +18,18 @@
 
     <div class="row justify-content-center ">
         <div style="text-align: center;width: 50%">
-            <form class="form-signin">
+            <form class="form-signin" th:action="@{/login/customerLogin}" method="post">
                 <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
                 <label for="inputCount" class="sr-only">账号</label>
-                <input  type="email" id="inputCount" class="form-control" placeholder="账号" required autofocus>
+                <input  type="text" id="inputCount"name="nickname" class="form-control" placeholder="请使用昵称登录" required autofocus>
                 <label  for="inputPassword" class="sr-only">密码</label>
-                <input  type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+                <input  type="password" id="inputPassword"name="password" class="form-control" placeholder="密码" required>
+                <p style="color: red" th:unless="${#strings.isEmpty(msg)}"th:text="${msg}"></p>
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> 记住账号
                     </label>
+                    <a data-toggle="modal" th:href="@{/indextoRe}">注册账号</a>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
                 <p class="mt-5 mb-3 text-muted">Copyright&copy; 2019-2020<span style="font-weight: 700;font-style:italic;color: rosybrown">Z-GAME</span> Incorporated.All rights reserved.</p>

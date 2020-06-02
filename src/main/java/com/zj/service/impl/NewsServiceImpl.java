@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 @Transactional
 public class NewsServiceImpl implements NewsService {
-    @Autowired(required = false)
+    @Autowired
     private NewsMapper newsMapper;
     //添加
     public void addNews(News news) {
