@@ -24,7 +24,8 @@ public interface Customermapper {
     /*根据昵称查询密码
     * */
     public String queryPasswordByName(String nickname);
-
+    public List<Customer> queryUserByName(String name);
+    public  List<Customer> queryNickName(String nickname);
 
 
 }

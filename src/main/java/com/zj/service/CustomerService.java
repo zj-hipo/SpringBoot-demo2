@@ -14,4 +14,6 @@ import java.util.List;
 public interface CustomerService {
     public List<Customer> queryAll();
     public String queryPasswordByName(String nickname);
+    public List<Customer> queryUserByName(String name);
+    public  List<Customer> queryNickName(String nickname);
 }

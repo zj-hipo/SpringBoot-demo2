@@ -8,19 +8,21 @@
 <body>
 <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/register.js}"></script>
 <div class="container">
     <form th:action="@{/register}" method="post">
         <div class="form-group row">
             <label for="inputName3" class="col-sm-2 col-form-label">账号</label>
             <div class="col-sm-10">
-                <input type="text" name="username" class="form-control" id="inputName3" placeholder="账号" required>
+                <input type="text" name="username" class="form-control" id="inputName3" placeholder="账号" onclick="javascript:hideMsg()" required>
             </div>
-            <p style="color: red" th:text="${msg}"></p>
+            <!--这里可以使用ajax-->
+            <p th:if="${msg!=null}"><span th:text="${msg}" id="msg" style="color: red"></span></p>
         </div>
         <div class="form-group row">
             <label for="inputName4" class="col-sm-2 col-form-label">昵称</label>
             <div class="col-sm-10">
-                <input type="text" name="nickname" class="form-control" id="inputName4" placeholder="昵称" required>
+                <input type="text" name="nickname" class="form-control" id="inputName4" placeholder="昵称"  onblur="javascript:nickAjax()" required>
             </div>
         </div>
         <div class="form-group row">
@@ -62,6 +64,12 @@
         </div>
     </form>
 </div>
+<!--鼠标focus事件-->
+<!--<script>
+    $("#inputName3").focus(function(){
+        $("#msg").hide();
+    });
+</script>-->
 
 </body>
 </html>

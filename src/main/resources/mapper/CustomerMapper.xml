@@ -11,4 +11,12 @@
     <select id="queryPasswordByName" parameterType="String" resultType="String">
         SELECT password FROM customer WHERE nickname=#{nickname}
     </select>
+    <!--根据名字查询用户是否存在-->
+    <select id="queryUserByName" parameterType="String" resultType="com.zj.pojo.Customer">
+        SELECT * FROM customer WHERE username=#{name}
+    </select>
+    <!--根据用户名查昵称-->
+    <select id="queryNickName" parameterType="String" resultType="com.zj.pojo.Customer">
+        SELECT * FROM customer WHERE nickname=#{nickname}
+    </select>
 </mapper>

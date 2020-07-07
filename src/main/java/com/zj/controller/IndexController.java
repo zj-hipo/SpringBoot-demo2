@@ -53,6 +53,7 @@ public class IndexController {
     /*
     * 图片查看,添加了分页查询
     * */
+    /*FIXME 在这里修改*/
     @RequestMapping("/findPictures")
     public String findPictures(Model model,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum){
         /*

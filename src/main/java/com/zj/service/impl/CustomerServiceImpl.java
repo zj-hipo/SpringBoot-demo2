@@ -29,4 +29,14 @@ public class CustomerServiceImpl implements CustomerService {
     public String queryPasswordByName(String nickname) {
         return customermapper.queryPasswordByName(nickname);
     }
+
+    @Override
+    public List<Customer> queryUserByName(String name) {
+        return customermapper.queryUserByName(name);
+    }
+
+    @Override
+    public List<Customer> queryNickName(String nickname) {
+        return customermapper.queryNickName(nickname);
+    }
 }
